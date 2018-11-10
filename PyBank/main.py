@@ -28,7 +28,7 @@ with open(csvpath,newline="") as csvfile:
     print(f"Total Months: {len(date)}")
     print(f"Total: ${sum(revenue)}")
 
-    for i in range(len(revenue)):    
+    for i in range(1,len(revenue)):    
         rev_change.append(revenue[i] - revenue[i-1])
         avg_rev_change = float(sum(rev_change) / len(rev_change))
 
@@ -36,9 +36,9 @@ with open(csvpath,newline="") as csvfile:
 
         min_rev_change = min(rev_change)
 
-        max_rev_change_date = str(date[rev_change.index(max(rev_change))])
+        max_rev_change_date = str(date[rev_change.index(max(rev_change))+1])
 
-        min_rev_change_date = str(date[rev_change.index(min(rev_change))])
+        min_rev_change_date = str(date[rev_change.index(min(rev_change))+1])
 
     print(f"Average change in Revenue: ${round(avg_rev_change)}")
     print(f"Greatist Increase in Profits: {max_rev_change_date} ${max_rev_change}")
